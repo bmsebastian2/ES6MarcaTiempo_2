@@ -25,7 +25,7 @@ app.get("/api/:date", (req, res) => {
   } else {
     const data = Date.now();
 
-    res.send({ data });
+    res.send({ unix: data, utc: date });
   }
 
   //console.log(new Date(26-11-1981).toString())
