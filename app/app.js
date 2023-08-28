@@ -1,18 +1,9 @@
+console.log("anexado");
 let data = "";
-let button1 = document.getElementById("fetch1");
-let button2 = document.getElementById("fetch2");
+let button = document.getElementById("fetch");
 let sistema = document.getElementById("sistema");
 let sistemaAll = document.querySelectorAll("#sistema");
 let info = document.getElementById("info");
-
-button1.addEventListener("click", () => {
-  // info.innerHTML += ` <p>📅 - Track: </p><strong id="sistema"> </strong>`
-  window.location.href = "/api/2015-12-25";
-});
-button2.addEventListener("click", () => {
-  // info.innerHTML += ` <p>📅 - Track: </p><strong id="sistema"> </strong>`
-  window.location.href = "/api/1451001600000";
-});
 
 async function buscardatos(elemento) {
   try {

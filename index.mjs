@@ -2,8 +2,13 @@ import express from "express";
 const app = express();
 import cors from "cors";
 import path from "path";
+
 import * as url from "url";
 import { PORT } from "./util/util.mjs";
+
+import { platform, release, totalmem } from "node:os";
+const sistemaOperativo = platform();
+
 import { fechaActual, fechaUnix } from "./app/fechaActual.mjs";
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 app.use(cors({ optionsSuccessStatus: 200 })); // some legacy browsers choke on 204
@@ -35,11 +40,16 @@ app.get("/api/:date", (req, res) => {
       });
     }
   } else {
-  
     res.json(fechaUnix(new Date(date)));
-
-    
   }
+});
+app.get("/sistema", (req, res) => {
+  res.send({
+    sistema: sistemaOperativo,
+    release: release(),
+    totalmen: Math.round(totalmem() / 1024 / 1024 / 1024) + " /Gb",
+    date: "26/11/1981🍺",
+  });
 });
 
 app.listen(PORT, () => console.log(`Server en puerto ${PORT}`));
@@ -62,4 +72,3 @@ app.listen(PORT, () => console.log(`Server en puerto ${PORT}`));
 //     " GMT";
 //   return GMTtime;
 // }
-
