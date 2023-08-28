@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     background-color: rgb(240, 248, 255);
     color: rgba(76, 81, 85, 0.973);
@@ -14,44 +14,53 @@ body{
     font-family: monospace;
 
 }
-.container{
+
+.container {
     border: 1px solid rgb(185, 176, 176);
     border-radius: 1rem;
     height: 60vh;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    
+
     align-items: center;
     justify-content: space-between;
 }
-.imagenesTecno{
+
+.imagenesTecno {
     display: flex;
 }
-.info{
-    width: 22vw;
+
+.info {
+    width: 55vw;
     border: 1px solid rgba(219, 210, 210, 0.726);
     border-radius: 0.5rem;
-    padding: 2rem;
+    padding: 1.5rem;
 }
-.parrafo{
+
+.parrafo {
     display: flex;
     justify-content: left;
     align-items: center;
 }
 
-strong{
+strong {
     font-size: 0.8rem;
 }
-button{
-    padding: 1rem;
+
+button {
+    min-width: 10rem;
+    padding: 0.5rem;
+    margin: 0.2rem;
     background-color: rgb(240, 248, 255);
 }
-a{
+
+a {
     text-decoration: none;
     color: black;
     font-weight: 900;
 }
-a:hover{
+
+a:hover {
     color: rebeccapurple;
 }
