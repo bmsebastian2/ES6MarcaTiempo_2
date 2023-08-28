@@ -1,4 +1,7 @@
 import express from "express";
+const app = express();
+import cors from 'cors'
+
 import path from "path";
 import * as url from "url";
 // import { __dirname } from "./util/dirname.mjs";
@@ -6,10 +9,9 @@ import { PORT, isErrorData } from "./util/util.mjs";
 //import { isDate } from "./util/types";
 import { fechaActual } from "./app/fechaActual.mjs";
 
-const app = express();
 //const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
-
+app.use(cors({optionsSuccessStatus: 200}));  // some legacy browsers choke on 204
 app.use(express.static(path.join(__dirname + "/style")));
 app.use(express.static(path.join(__dirname + "/app")));
 
@@ -26,10 +28,11 @@ app.get("/api/:date", (req, res) => {
   const { date } = req.params;
 
   console.log(date);
-  console.log(parseInt(date));
+
   if (isNaN(Date.parse(date))) {
     //ES UNIX
     if (isNaN(parseInt(date))) {
+      console.log(parseInt(date));
       res.json({
         error: "Invalid Date",
       });

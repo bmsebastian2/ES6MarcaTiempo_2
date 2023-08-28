@@ -1,16 +1,21 @@
 {
-  "name": "1.2",
-  "version": "1.0.0",
+  "name": "micro_SERVICIOS_de_mARCAS",
+  "version": "0.0.1",
   "description": "Microservicio de marca de tiempo",
   "main": "index.js",
   "scripts": {
-    "start": "node server.mjs"
+    "start": "node index.mjs"
   },
   "author": "bmsebastian2@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "dayjs": "^1.11.9",
     "express": "^4.18.2",
     "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmsebastian2/ES6MarcaTiempo_2.git"
   }
 }
