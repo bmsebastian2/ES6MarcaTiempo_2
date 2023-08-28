@@ -5,5 +5,11 @@ export const fechaActual = () => {
     utc: new Date(data).toUTCString(),
   };
 };
+export const fechaUnix = (date) => {
+   return {
+    unix: Date.parse(date),
+    utc: new Date(date).toUTCString(),
+  };
+};
 
 
