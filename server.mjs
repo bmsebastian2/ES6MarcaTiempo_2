@@ -3,8 +3,8 @@ import path from "path";
 import * as url from "url";
 // import { __dirname } from "./util/dirname.mjs";
 import { PORT, isErrorData } from "./util/util.mjs";
-import { isDate } from "util/types";
-
+//import { isDate } from "./util/types";
+import { fechaActual } from "./app/fechaActual.mjs";
 
 const app = express();
 //const __filename = url.fileURLToPath(import.meta.url);
@@ -19,11 +19,7 @@ app.get("/", (req, res) => {
 
 app.get("/api", (req, res) => {
   const data = Date.now();
-  console.log(data);
-  res.send({
-    unix: data,
-    utc: new Date(data).toUTCString(),
-  });
+  res.send(fechaActual());
 });
 
 app.get("/api/:date", (req, res) => {
@@ -38,8 +34,9 @@ app.get("/api/:date", (req, res) => {
     });
   } else {
     //ES FECHA
-    console.log(isDate("2015-12-02"));
-    console.log(new Date(date).toUTCString());
+    console.log("2015-12-02");
+    res.send("fecha formato 26/11/1981");
+    //console.log(new Date(date).toUTCString());
 
     // let fecha = changeToGMT(date);
     // Number.parseInt(changeToUTC(date));

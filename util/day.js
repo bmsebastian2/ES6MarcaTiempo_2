@@ -28,9 +28,11 @@ const validarFecha = (fecha) => {
 
 //validarFecha("1981/11/26");
 console.log(Date.parse("1981/11/26"));
-console.log(Date.parse(1981/11/26));
-console.log(Date.parse('ajkajsk'))
-console.log(Date.parse('1950'))
+console.log(Date.parse(1981 / 11 / 26));
+console.log(Date.parse("ajkajsk"));
+console.log(Date.parse("1950"));
 //validarFecha("1451001600000");
 //validarFecha(1451001600000);
 //validarFecha('sdsdsds')
+
+
