@@ -3,18 +3,15 @@ import path from "path";
 import * as url from "url";
 // import { __dirname } from "./util/dirname.mjs";
 import { PORT, isErrorData } from "./util/util.mjs";
-import { Console } from "console";
+import { isDate } from "util/types";
+
 
 const app = express();
-
-const __filename = url.fileURLToPath(import.meta.url);
+//const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL(".", import.meta.url));
 
 app.use(express.static(path.join(__dirname + "/style")));
 app.use(express.static(path.join(__dirname + "/app")));
-
-console.log(__filename);
-console.log(path.join(__dirname + "/views/index.html"));
 
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname + "views/index.html"));
@@ -31,25 +28,26 @@ app.get("/api", (req, res) => {
 
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
-  //console.log(new Date().toUTCString());
-  //   console.log(Math.floor(new Date().getTime() / 1000));
-  //   console.log(Date.parse(date));
-  //   console.log(Date.parse(Math.floor(new Date().getTime() / 1000)));
 
   if (isNaN(Date.parse(date))) {
+    //ES UNIX
     let number = Number.parseInt(date);
     res.send({
       unix: number,
       utc: new Date(number).toUTCString(),
     });
   } else {
-    let fecha = changeToGMT(date);
-    //Number.parseInt(changeToUTC(date));
+    //ES FECHA
+    console.log(isDate("2015-12-02"));
+    console.log(new Date(date).toUTCString());
 
-    res.send({
-      unix: (new Date(fecha) / 1000) | 0,
-      utc: new Date(fecha).toUTCString(),
-    });
+    // let fecha = changeToGMT(date);
+    // Number.parseInt(changeToUTC(date));
+
+    // res.send({
+    //   unix: (new Date(fecha) / 1000) | 0,
+    //   utc: new Date(fecha).toUTCString(),
+    // });
   }
 });
 // app.get("/api", (req, res) => {
