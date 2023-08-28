@@ -19,19 +19,27 @@ app.get("/", (req, res) => {
 
 app.get("/api", (req, res) => {
   const data = Date.now();
-  res.send(fechaActual());
+  res.json(fechaActual());
 });
 
 app.get("/api/:date", (req, res) => {
   const { date } = req.params;
 
+  console.log(date);
+  console.log(parseInt(date));
   if (isNaN(Date.parse(date))) {
     //ES UNIX
-    let number = Number.parseInt(date);
-    res.send({
-      unix: number,
-      utc: new Date(number).toUTCString(),
-    });
+    if (isNaN(parseInt(date))) {
+      res.json({
+        error: "Invalid Date",
+      });
+    } else {
+      let number = Number.parseInt(date);
+      res.json({
+        unix: number,
+        utc: new Date(number).toUTCString(),
+      });
+    }
   } else {
     //ES FECHA
     console.log("2015-12-02");

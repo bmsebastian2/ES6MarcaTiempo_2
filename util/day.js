@@ -2,12 +2,7 @@ const dayjs = require("dayjs");
 
 const data = Date.now();
 
-const objectResponse = {
-  1: {
-    unix: data,
-    utc: new Date(data).toUTCString(),
-  },
-};
+
 // console.log(dayjs("2015-12-02").$d);
 // console.log(dayjs("hleoo").$d);
 // console.log(dayjs("1451001600000").$y);
