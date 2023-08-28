@@ -41,77 +41,31 @@ app.get("/api/:date", (req, res) => {
       });
     }
   } else {
-    //ES FECHA
-    // console.log("MODO FECHA:");
-    //console.log("what fuck");
-    //console.log(new Date(date));
-    //console.log(changeToGMT(date));
-    //console.log(fechaActual(changeToGMT(new Date(date))));
-    //res.json(fechaActual(changeToGMT(new Date(date))));
-    //console.log(fechaUnix(date));
-    //console.log(fechaUnix(new Date(date)));
+  
     res.json(fechaUnix(new Date(date)));
 
-    // if(){
-
-    // }else{
-
-    // }
-    // res.json(fechaUnix(date));
-    // console.log("------------1");
-    // console.log(new Date(date));
-    // console.log("------------2");
-    // console.log(new Date(date).toUTCString());
-    // console.log("------------3");
-    // console.log(new Date(date).getUTCDate());
-    // console.log("------------4");
-    // console.log(Date.parse(date));
-
-    // Number.parseInt(changeToUTC(date));
-
-    // let fecha = changeToGMT(date);
-
-    // res.send({
-    //   unix: (new Date(fecha) / 1000) | 0,
-    //   utc: new Date(fecha).toUTCString(),
-    // });
+    
   }
 });
-// app.get("/api", (req, res) => {
-//   const data = Date.now();
-//   res.send({ data });
-// });
 
-// app.get("/api/:date", (req, res) => {
-//   const { date } = req.params;
-//   if (isErrorData(date)) {
-//     res.send({ error: "Invalid Date" });
-//   } else {
-//     const data = Date.now();
-
-//     res.send({ unix: data, utc: date });
-//   }
-// });
 app.listen(PORT, () => console.log(`Server en puerto ${PORT}`));
 
-function changeToGMT(fecha) {
-  let dates = new Date(fecha);
-  let GMTtime =
-    dates.getUTCMonth() +
-    1 +
-    "/" +
-    dates.getUTCDate() +
-    "/" +
-    dates.getUTCFullYear() +
-    " " +
-    dates.getUTCHours() +
-    ":" +
-    dates.getUTCMinutes() +
-    ":" +
-    dates.getUTCSeconds() +
-    " GMT";
-  return GMTtime;
-}
-// function changeToUTC(date) {
-//   return new Date(date);
+// function changeToGMT(fecha) {
+//   let dates = new Date(fecha);
+//   let GMTtime =
+//     dates.getUTCMonth() +
+//     1 +
+//     "/" +
+//     dates.getUTCDate() +
+//     "/" +
+//     dates.getUTCFullYear() +
+//     " " +
+//     dates.getUTCHours() +
+//     ":" +
+//     dates.getUTCMinutes() +
+//     ":" +
+//     dates.getUTCSeconds() +
+//     " GMT";
+//   return GMTtime;
 // }
+
