@@ -15,7 +15,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api", (req, res) => {
-  const data = Date.now();
   res.json(fechaActual());
 });
 
